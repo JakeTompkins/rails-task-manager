@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   get '/tasks/:id', to: "tasks#show", as: :task
   # edit a task
   get '/tasks/:id/edit', to: "tasks#edit", as: :edit
-  patch '/tasks/:id', to: "tasks#update"
+  patch '/tasks/:id', to: "tasks#update", as: :update
   # delete a task
   delete '/tasks/:id', to: "tasks#destroy", as: :delete
+  # complete a task
+  post '/tasks/:id', to: "tasks#complete", as: :complete
 
   root to: 'tasks#index'
 end

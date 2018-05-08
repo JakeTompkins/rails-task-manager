@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :complete]
   def index
     @tasks = Task.where(completed: false)
   end
@@ -26,6 +26,13 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    redirect_to root_path
+  end
+
+  def complete
+    @task.complete!
+    # @task.completed = true
+    # @task.save
     redirect_to root_path
   end
 

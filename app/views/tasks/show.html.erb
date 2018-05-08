@@ -1,5 +1,5 @@
 <h1><%= @task.title %></h1>
 <p><%= @task.details %></p>
-<p>Completed: <%= @task.completed? %></p>
+<%= link_to  "Complete", complete_path(@task.id), method: :post %>
 <%= link_to  "Edit", edit_path(@task.id) %>
 <%= link_to  "Delete", delete_path(@task.id), method: :delete %>
